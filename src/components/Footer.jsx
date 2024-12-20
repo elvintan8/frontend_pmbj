@@ -27,7 +27,7 @@ const Footer = () => {
               </a>
              
               <a
-                href="https://facebook.com"
+                href="https://facebook.com/pmbj.banget"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-sky-400 transition-all transform hover:scale-110"
@@ -36,7 +36,7 @@ const Footer = () => {
               </a>
               
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@pmbjbanget6031"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-sky-400 transition-all transform hover:scale-110"

@@ -18,9 +18,9 @@ const Navbar = () => {
     { name: "Kegiatan PMBJ", link: "/KegiatanPmbj", content: "Kegiatan PMBJ termasuk program komunitas seperti Fery." },
     { name: "Daftar Ketua Umum", link: "/DaftarKetuaUmum", content: "Daftar Ketua Umum yang pernah menjabat, termasuk Fery." },
     { name: "Form Pendaftaran", link: "/FormPendaftaran", content: "Form pendaftaran untuk anggota baru." },
+    { name: "List Daftar", link: "/ListDaftar", content: "Daftar informasi tambahan yang tersedia di platform ini." },
   ];
 
-  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 5) {
@@ -33,13 +33,11 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
-    
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
@@ -51,12 +49,10 @@ const Navbar = () => {
     setFilteredData(results);
   };
 
-  
   if (location.pathname === "/LoginPage") {
     return null; 
   }
 
-  
   let scrollActive = scroll ? "py-6 bg-white shadow" : "py-4";
   let menuActive = show ? "left-0" : "-left-full";
 
@@ -64,14 +60,11 @@ const Navbar = () => {
     <div className={`navbar fixed w-full transition-all ${scrollActive}`}>
       <div className="container mx-auto px-4">
         <div className="navbar-box flex items-center justify-between">
-
-        
           <div className="navbar-logo flex items-center">
             <img src={logo1} alt="Logo" className="w-12 h-12 mr-4" />
             <h1 className="sm:text-2xl text-xl font-bold">PMBJ BANGET</h1>
           </div>
 
-          
           <ul 
             className={`lg:flex lg:gap-12 md:static md:flex-row md:shadow-none md:bg-transparent md:w-auto md:h-full md:translate-y-0 md:text-black md:p-0 md:m-0 md:transition-none gap-8 fixed ${menuActive} top-1/2 -translate-y-1/2 flex-col px-8 py-6 rounded shadow-lg shadow-slate-300 bg-sky-400 font-bold text-white transition-all`}
           >
@@ -105,16 +98,17 @@ const Navbar = () => {
               <i className="ri-survey-line text-3xl md:hidden block"></i>
               <Link to="/FormPendaftaran" className="font-medium opacity-75 hover:text-blue-500">Form Pendaftaran</Link>
             </li>
+            <li className="flex items-center gap-3">
+              <i className="ri-list-check-3 text-3xl md:hidden block"></i>
+              <Link to="/ListDaftar" className="font-medium opacity-75 hover:text-blue-500">List Daftar</Link>
+            </li>
           </ul>
 
-          
           <div className="flex items-center gap-6 relative">
-          
             <button onClick={() => setSearchVisible(!searchVisible)} className="text-2xl focus:outline-none hover:text-blue-500">
               <i className="ri-search-line"></i>
             </button>
 
-           
             {searchVisible && (
               <div className="absolute top-12 right-0 bg-white shadow-lg rounded p-4 w-64 z-10">
                 <input
@@ -138,7 +132,6 @@ const Navbar = () => {
               </div>
             )}
 
-            
             <button onClick={() => setShow(!show)} className="lg:hidden text-3xl focus:outline-none">
               <i className="ri-menu-3-line"></i>
             </button>
